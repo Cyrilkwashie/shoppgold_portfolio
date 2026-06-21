@@ -129,7 +129,11 @@ export default function EditorialSplit({
           {link && (
             <Link
               href={link.href}
-              className="font-jost text-xs sm:text-sm uppercase tracking-[0.22em] text-gold font-medium mt-8 inline-block border-b border-gold/60 pb-1 hover:border-gold hover:text-ink transition-colors"
+              className={`font-jost text-[11px] sm:text-xs uppercase tracking-[0.2em] font-medium mt-8 inline-flex w-fit self-start px-5 py-2.5 transition-colors ${
+                dark
+                  ? 'bg-gold text-ink hover:bg-white hover:text-ink'
+                  : 'bg-gold text-white hover:bg-ink hover:text-gold'
+              }`}
             >
               {link.label}
             </Link>
