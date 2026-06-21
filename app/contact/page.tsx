@@ -159,9 +159,9 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-ink py-32 text-center px-8">
+      <section className="bg-night py-32 text-center px-8">
         <h2 className="font-cormorant font-light text-6xl md:text-8xl text-gold">SHOPP_GOLD</h2>
-        <p className="font-jost text-[11px] uppercase tracking-[0.4em] text-white/30 mt-4">
+        <p className="font-jost text-[11px] uppercase tracking-[0.4em] text-on-night/30 mt-4">
           CRAFTED BY SHIKATEL · CAPE COAST
         </p>
       </section>

@@ -17,7 +17,7 @@ export default function Error({
       <button
         type="button"
         onClick={reset}
-        className="mt-8 bg-ink text-white font-jost text-[11px] uppercase tracking-[0.2em] px-12 py-4 hover:bg-gold transition-colors"
+        className="mt-8 bg-night text-on-night font-jost text-[11px] uppercase tracking-[0.2em] px-12 py-4 hover:bg-gold hover:text-on-accent transition-colors"
       >
         Try Again
       </button>

@@ -3,11 +3,36 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --canvas: #ffffff;
+    --canvas-alt: #f7f5f2;
+    --night: #0d0d0d;
+    --ink: #0d0d0d;
+    --ink-muted: #6b6b6b;
+    --accent: #c9a84c;
+    --on-night: #ffffff;
+    --on-accent: #0d0d0d;
+    --border: rgba(0, 0, 0, 0.1);
+  }
+
+  .dark {
+    --canvas: #000000;
+    --canvas-alt: #0a0a0a;
+    --night: #000000;
+    --ink: #f8c8dc;
+    --ink-muted: #c995a8;
+    --accent: #f8c8dc;
+    --on-night: #f8c8dc;
+    --on-accent: #000000;
+    --border: rgba(248, 200, 220, 0.18);
+  }
+
   html {
     scroll-behavior: smooth;
   }
+
   body {
-    @apply bg-white text-ink font-jost;
+    @apply bg-canvas text-ink font-jost transition-colors duration-300;
     cursor: none;
   }
 }

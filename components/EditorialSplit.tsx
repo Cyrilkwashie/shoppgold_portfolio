@@ -42,7 +42,7 @@ export default function EditorialSplit({
   const dark = bg === 'ink'
 
   const bgClass =
-    bg === 'ink' ? 'bg-ink' : bg === 'off-white' ? 'bg-off-white' : 'bg-white'
+    bg === 'ink' ? 'bg-night' : bg === 'off-white' ? 'bg-off-white' : 'bg-canvas'
 
   const imageOrder = mobileTextFirst ? 'order-2 lg:order-none' : ''
   const textOrder = mobileTextFirst ? 'order-1 lg:order-none' : ''
@@ -102,7 +102,7 @@ export default function EditorialSplit({
             <h2
               className={`font-cormorant font-light text-4xl md:text-5xl leading-tight ${
                 titleItalic ? 'italic' : ''
-              } ${dark ? 'text-white' : 'text-ink'}`}
+              } ${dark ? 'text-on-night' : 'text-ink'}`}
             >
               {title}
             </h2>
@@ -110,7 +110,7 @@ export default function EditorialSplit({
           {quote && (
             <blockquote
               className={`font-cormorant italic font-light text-3xl md:text-4xl leading-snug mt-2 ${
-                dark ? 'text-white' : 'text-ink'
+                dark ? 'text-on-night' : 'text-ink'
               }`}
             >
               &ldquo;{quote}&rdquo;
@@ -119,7 +119,7 @@ export default function EditorialSplit({
           {body && (
             <p
               className={`font-jost font-light text-sm leading-relaxed mt-6 max-w-md ${
-                dark ? 'text-white/70' : 'text-ink-muted'
+                dark ? 'text-on-night/70' : 'text-ink-muted'
               }`}
             >
               {body}
@@ -131,8 +131,8 @@ export default function EditorialSplit({
               href={link.href}
               className={`font-jost text-[11px] sm:text-xs uppercase tracking-[0.2em] font-medium mt-8 inline-flex w-fit self-start px-5 py-2.5 transition-colors ${
                 dark
-                  ? 'bg-gold text-ink hover:bg-white hover:text-ink'
-                  : 'bg-gold text-white hover:bg-ink hover:text-gold'
+                  ? 'bg-gold text-on-accent hover:bg-canvas hover:text-ink'
+                  : 'bg-gold text-on-accent hover:bg-night hover:text-gold'
               }`}
             >
               {link.label}

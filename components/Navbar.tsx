@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useScrollPosition } from '@/hooks/useScrollPosition'
+import ThemeToggle from '@/components/ThemeToggle'
 import { cn } from '@/lib/utils'
 
 const navLinks = [
@@ -36,10 +37,10 @@ export default function Navbar() {
           'fixed top-0 left-0 right-0 z-50 transition-colors duration-300 border-b',
           heroNav
             ? 'border-transparent bg-transparent'
-            : 'border-black/10 bg-white/95 backdrop-blur-sm'
+            : 'border-theme bg-canvas/95 backdrop-blur-sm'
         )}
       >
-        <nav className="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
+        <nav className="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between gap-4">
           <Link href="/" className="relative group">
             <span
               className={cn(
@@ -69,18 +70,22 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <ThemeToggle inverted={heroNav} />
           </div>
 
-          <button
-            type="button"
-            className="md:hidden flex flex-col gap-1.5 p-2"
-            onClick={() => setMenuOpen(true)}
-            aria-label="Open menu"
-          >
-            <span className={cn('block w-6 h-[1px]', heroNav ? 'bg-white' : 'bg-ink')} />
-            <span className={cn('block w-6 h-[1px]', heroNav ? 'bg-white' : 'bg-ink')} />
-            <span className={cn('block w-6 h-[1px]', heroNav ? 'bg-white' : 'bg-ink')} />
-          </button>
+          <div className="md:hidden flex items-center gap-4">
+            <ThemeToggle inverted={heroNav} />
+            <button
+              type="button"
+              className="flex flex-col gap-1.5 p-2"
+              onClick={() => setMenuOpen(true)}
+              aria-label="Open menu"
+            >
+              <span className={cn('block w-6 h-[1px]', heroNav ? 'bg-white' : 'bg-ink')} />
+              <span className={cn('block w-6 h-[1px]', heroNav ? 'bg-white' : 'bg-ink')} />
+              <span className={cn('block w-6 h-[1px]', heroNav ? 'bg-white' : 'bg-ink')} />
+            </button>
+          </div>
         </nav>
       </header>
 
@@ -91,7 +96,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-white z-[60] flex items-center justify-center flex-col gap-8 md:hidden"
+            className="fixed inset-0 bg-canvas z-[60] flex items-center justify-center flex-col gap-8 md:hidden"
           >
             <button
               type="button"

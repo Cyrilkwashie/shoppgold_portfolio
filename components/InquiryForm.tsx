@@ -20,7 +20,7 @@ type FormData = {
 }
 
 const inputClass =
-  'w-full bg-transparent border-b border-black/80 py-3 font-jost font-light text-sm focus:outline-none focus:border-gold transition-colors'
+  'w-full bg-transparent border-b border-ink/30 py-3 font-jost font-light text-sm focus:outline-none focus:border-gold transition-colors'
 
 export default function InquiryForm() {
   const [submitted, setSubmitted] = useState(false)
@@ -158,7 +158,7 @@ export default function InquiryForm() {
 
       <button
         type="submit"
-        className="w-full bg-ink text-white font-jost text-[11px] uppercase tracking-[0.2em] py-5 mt-6 hover:bg-gold transition-colors duration-300"
+        className="w-full bg-night text-on-night font-jost text-[11px] uppercase tracking-[0.2em] py-5 mt-6 hover:bg-gold hover:text-on-accent transition-colors duration-300"
       >
         Submit Inquiry
       </button>

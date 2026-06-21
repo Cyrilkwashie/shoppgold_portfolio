@@ -76,7 +76,7 @@ export default function CollectionsFilter() {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center gap-8 py-8 border-b border-black/10">
+      <div className="flex flex-wrap justify-center gap-8 py-8 border-b border-theme">
         {COLLECTION_FILTERS.map((filter) => (
           <button
             key={filter}

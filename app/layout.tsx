@@ -5,6 +5,8 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import CustomCursor from '@/components/CustomCursor'
 import PageTransition from '@/components/PageTransition'
+import { ThemeProvider } from '@/hooks/useTheme'
+import ThemeScript from '@/components/ThemeScript'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -37,12 +39,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${jost.variable}`} suppressHydrationWarning>
       <body className="antialiased">
-        <Navbar />
-        <PageTransition>{children}</PageTransition>
-        <Footer />
-        <CustomCursor />
+        <ThemeScript />
+        <ThemeProvider>
+          <Navbar />
+          <PageTransition>{children}</PageTransition>
+          <Footer />
+          <CustomCursor />
+        </ThemeProvider>
       </body>
     </html>
   )
