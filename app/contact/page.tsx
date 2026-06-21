@@ -4,6 +4,7 @@ import InquiryForm from '@/components/InquiryForm'
 import EditorialSplit from '@/components/EditorialSplit'
 import RevealOnScroll from '@/components/RevealOnScroll'
 import { ABOUT_IMAGES, SITE_IMAGES } from '@/lib/media'
+import { SOCIAL_LINKS, WHATSAPP_DISPLAY, WHATSAPP_URL } from '@/lib/social'
 import { BLUR_DATA_URL } from '@/lib/blur-placeholder'
 
 export const metadata: Metadata = {
@@ -21,11 +22,19 @@ function InstagramIcon() {
   )
 }
 
-function PinterestIcon() {
+function SnapchatIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <circle cx="12" cy="12" r="10" />
-      <path d="M8 20c1-4 2-8 4-12" />
+      <path d="M12 2c2 0 3.5 1.5 3.5 4.5 0 1.5-.5 2.5-1 3.5 1 .5 2 1 3 2-1 1.5-2.5 2-4 2s-3-.5-4-2c1-1 2-1.5 3-2-.5-1-1-2-1-3.5C8.5 3.5 10 2 12 2z" />
+    </svg>
+  )
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z" />
+      <path d="M9 10.5c.5 1.5 2 3 3.5 3.5l1.5-1.5c.2-.2.5-.2.7 0l1.2 1.2c.2.2.2.5 0 .7-1 1-2.3 1.5-3.7 1-3.2-1.1-5.7-3.6-6.8-6.8-.5-1.4 0-2.7 1-3.7.2-.2.5-.2.7 0l1.2 1.2c.2.2.2.5 0 .7L9 10.5z" />
     </svg>
   )
 }
@@ -37,6 +46,13 @@ function TikTokIcon() {
     </svg>
   )
 }
+
+const socialIcons = {
+  Instagram: InstagramIcon,
+  Snapchat: SnapchatIcon,
+  WhatsApp: WhatsAppIcon,
+  TikTok: TikTokIcon,
+} as const
 
 export default function ContactPage() {
   return (
@@ -81,28 +97,42 @@ export default function ContactPage() {
                 </a>
               </p>
               <p>
-                Instagram:{' '}
-                <a
-                  href="https://instagram.com/shopp_gold"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gold transition-colors"
-                >
-                  @shopp_gold
+                WhatsApp:{' '}
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">
+                  {WHATSAPP_DISPLAY}
                 </a>
               </p>
+              {SOCIAL_LINKS.filter((link) => link.label !== 'WhatsApp').map((link) => (
+                <p key={link.label}>
+                  {link.label}:{' '}
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-gold transition-colors"
+                  >
+                    @{link.handle}
+                  </a>
+                </p>
+              ))}
               <p>By appointment only.</p>
             </div>
             <div className="mt-8 flex gap-6 text-ink">
-              <a href="https://instagram.com/shopp_gold" className="hover:text-gold transition-colors" aria-label="Instagram">
-                <InstagramIcon />
-              </a>
-              <a href="https://pinterest.com" className="hover:text-gold transition-colors" aria-label="Pinterest">
-                <PinterestIcon />
-              </a>
-              <a href="https://tiktok.com" className="hover:text-gold transition-colors" aria-label="TikTok">
-                <TikTokIcon />
-              </a>
+              {SOCIAL_LINKS.map((link) => {
+                const Icon = socialIcons[link.label]
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-gold transition-colors"
+                    aria-label={link.label}
+                  >
+                    <Icon />
+                  </a>
+                )
+              })}
             </div>
             <p className="font-jost italic font-light text-xs text-ink-muted mt-8">
               Commission timeline: 8–12 weeks from consultation to final fitting.

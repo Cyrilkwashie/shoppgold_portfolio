@@ -1,16 +1,11 @@
 import Link from 'next/link'
+import { SOCIAL_LINKS } from '@/lib/social'
 
 const navLinks = [
   { href: '/collections', label: 'Collections' },
   { href: '/about', label: 'About' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/contact', label: 'Contact' },
-]
-
-const socialLinks = [
-  { href: 'https://instagram.com/shopp_gold', label: 'Instagram' },
-  { href: 'https://pinterest.com', label: 'Pinterest' },
-  { href: 'https://tiktok.com', label: 'TikTok' },
 ]
 
 export default function Footer() {
@@ -30,7 +25,7 @@ export default function Footer() {
               Follow
             </p>
             <ul className="space-y-2">
-              {socialLinks.map((link) => (
+              {SOCIAL_LINKS.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
