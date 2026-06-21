@@ -34,6 +34,7 @@ export default function Home() {
 
       <EditorialSplit
         index={2}
+        mobileTextFirst
         imageSrc={HOME_IMAGES.sketch}
         alt="Sketch"
         label="Process · 01"
@@ -43,6 +44,7 @@ export default function Home() {
 
       <EditorialSplit
         index={3}
+        mobileTextFirst
         bg="off-white"
         imageSrc={HOME_IMAGES.drape}
         alt="Drape"
@@ -53,6 +55,7 @@ export default function Home() {
 
       <EditorialSplit
         index={4}
+        mobileTextFirst
         alt="Sew"
         videoSrc={SEW_VIDEO}
         label="Process · 03"

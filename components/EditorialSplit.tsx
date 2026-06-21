@@ -18,6 +18,8 @@ type EditorialSplitProps = {
   quote?: string
   link?: { href: string; label: string }
   bg?: 'white' | 'off-white' | 'ink'
+  /** On mobile, show copy above the image instead of below */
+  mobileTextFirst?: boolean
   children?: React.ReactNode
 }
 
@@ -33,6 +35,7 @@ export default function EditorialSplit({
   quote,
   link,
   bg = 'white',
+  mobileTextFirst = false,
   children,
 }: EditorialSplitProps) {
   const reverse = index % 2 === 1
@@ -40,6 +43,9 @@ export default function EditorialSplit({
 
   const bgClass =
     bg === 'ink' ? 'bg-ink' : bg === 'off-white' ? 'bg-off-white' : 'bg-white'
+
+  const imageOrder = mobileTextFirst ? 'order-2 lg:order-none' : ''
+  const textOrder = mobileTextFirst ? 'order-1 lg:order-none' : ''
 
   return (
     <section className={`${bgClass} py-16 md:py-24 lg:py-32`}>
@@ -50,7 +56,7 @@ export default function EditorialSplit({
       >
         <RevealOnScroll
           direction={reverse ? 'right' : 'left'}
-          className="relative aspect-[3/4] overflow-hidden lg:[direction:ltr]"
+          className={`relative aspect-[3/4] overflow-hidden lg:[direction:ltr] ${imageOrder}`}
         >
           {videoSrc ? (
             <video
@@ -81,7 +87,7 @@ export default function EditorialSplit({
         <RevealOnScroll
           delay={0.15}
           direction={reverse ? 'left' : 'right'}
-          className="flex flex-col justify-center lg:[direction:ltr] py-4 lg:py-0"
+          className={`flex flex-col justify-center lg:[direction:ltr] py-4 lg:py-0 ${textOrder}`}
         >
           {label && (
             <p
