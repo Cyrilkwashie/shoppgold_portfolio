@@ -1,101 +1,76 @@
-import Image from "next/image";
+import HeroVideo from '@/components/HeroVideo'
+import EditorialSplit from '@/components/EditorialSplit'
+import { HERO_VIDEO, HOME_IMAGES, SEW_VIDEO } from '@/lib/media'
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      <HeroVideo
+        videoSrc={HERO_VIDEO}
+        title="SHOPP_GOLD"
+      />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+      <EditorialSplit
+        index={0}
+        imageSrc={HOME_IMAGES.artOfTheDress}
+        alt="The art of the dress"
+        label="Atelier · Cape Coast"
+        title="The art of the dress."
+        titleItalic
+        body="Every gown begins with a conversation — about who you are, where you're going, and how you want to feel when you arrive. Shikatel crafts each piece by hand, where West African heritage meets couture technique."
+        link={{ href: '/about', label: 'About Shikatel →' }}
+      />
+
+      <EditorialSplit
+        index={1}
+        bg="off-white"
+        imageSrc={HOME_IMAGES.collections}
+        alt="Collections"
+        label="Portfolio"
+        title="Collections"
+        body="Six distinct bodies of work — bridal, evening, ready-to-wear, and resort. Each collection tells a story through silhouette, fabric, and the woman who wears it."
+        link={{ href: '/collections', label: 'View All Collections →' }}
+      />
+
+      <EditorialSplit
+        index={2}
+        imageSrc={HOME_IMAGES.sketch}
+        alt="Sketch"
+        label="Process · 01"
+        title="Sketch"
+        body="It starts on paper — exploring silhouette and proportion before a single thread is cut. Every line is intentional."
+      />
+
+      <EditorialSplit
+        index={3}
+        bg="off-white"
+        imageSrc={HOME_IMAGES.drape}
+        alt="Drape"
+        label="Process · 02"
+        title="Drape"
+        body="Fabric is pinned directly on the form. The body dictates the shape — not the other way around."
+      />
+
+      <EditorialSplit
+        index={4}
+        alt="Sew"
+        videoSrc={SEW_VIDEO}
+        label="Process · 03"
+        title="Sew"
+        body="Every seam sewn by hand. Every detail placed with intention until the dress is ready to meet its woman."
+      />
+
+      <EditorialSplit
+        index={5}
+        bg="off-white"
+        imageSrc={HOME_IMAGES.gallery}
+        alt="Gallery"
+        label="Gallery"
+        title="Moments & details."
+        titleItalic
+        body="Editorial spreads, fabric close-ups, and the quiet beauty of the atelier — a visual diary of the work."
+        link={{ href: '/gallery', label: 'View Gallery →' }}
+      />
+    </>
+  )
 }

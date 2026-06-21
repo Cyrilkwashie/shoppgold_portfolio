@@ -1,0 +1,82 @@
+import Link from 'next/link'
+
+const navLinks = [
+  { href: '/collections', label: 'Collections' },
+  { href: '/about', label: 'About' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/contact', label: 'Contact' },
+]
+
+const socialLinks = [
+  { href: 'https://instagram.com/shopp_gold', label: 'Instagram' },
+  { href: 'https://pinterest.com', label: 'Pinterest' },
+  { href: 'https://tiktok.com', label: 'TikTok' },
+]
+
+export default function Footer() {
+  return (
+    <footer className="bg-ink text-white">
+      <div className="max-w-7xl mx-auto px-8 pt-20 pb-8 text-center">
+        <h2 className="font-cormorant font-light text-6xl text-gold tracking-widest">
+          SHOPP_GOLD
+        </h2>
+        <p className="font-jost text-[11px] tracking-[0.4em] uppercase text-gray-500 mt-4">
+          CRAFTED BY SHIKATEL
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-12 mt-12 border-t border-white/10 text-left md:text-center">
+          <div>
+            <p className="font-jost text-[11px] uppercase tracking-widest text-white/40 mb-4">
+              Follow
+            </p>
+            <ul className="space-y-2">
+              {socialLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-jost text-[11px] uppercase tracking-widest text-white/60 hover:text-gold transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="font-jost text-[11px] uppercase tracking-widest text-white/40 mb-4">
+              Navigate
+            </p>
+            <ul className="space-y-2">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="font-jost text-[11px] uppercase tracking-widest text-white/60 hover:text-gold transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="flex md:justify-center items-start md:items-center">
+            <Link
+              href="/contact"
+              className="border border-gold text-gold font-jost text-[11px] uppercase tracking-widest px-8 py-3 hover:bg-gold hover:text-white transition-colors inline-block"
+            >
+              INQUIRE
+            </Link>
+          </div>
+        </div>
+
+        <p className="font-jost text-[11px] text-white/25 border-t border-white/10 mt-8 pt-6">
+          © {new Date().getFullYear()} SHOPP_GOLD. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  )
+}
