@@ -15,12 +15,12 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-ink text-white">
-      <div className="max-w-7xl mx-auto px-8 pt-20 pb-8 text-center">
-        <h2 className="font-cormorant font-light text-6xl text-gold tracking-widest">
+    <footer className="bg-ink text-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-16 sm:pt-20 pb-8 text-center">
+        <h2 className="font-cormorant font-light text-[clamp(1.75rem,9vw,3.75rem)] text-gold tracking-[0.12em] sm:tracking-widest break-words max-w-full leading-none">
           SHOPP_GOLD
         </h2>
-        <p className="font-jost text-[11px] tracking-[0.4em] uppercase text-gray-500 mt-4">
+        <p className="font-jost text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.4em] uppercase text-gray-500 mt-4">
           CRAFTED BY SHIKATEL
         </p>
 
@@ -73,7 +73,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <p className="font-jost text-[11px] text-white/25 border-t border-white/10 mt-8 pt-6">
+        <p className="font-jost text-[10px] sm:text-[11px] text-white/25 border-t border-white/10 mt-8 pt-6 break-words">
           © {new Date().getFullYear()} SHOPP_GOLD. All rights reserved.
         </p>
       </div>

@@ -22,12 +22,8 @@ function GalleryTile({
   onOpen: (index: number) => void
 }) {
   return (
-    <motion.button
+    <button
       type="button"
-      layout
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.03 }}
       onClick={() => onOpen(index)}
       className={`group relative overflow-hidden bg-off-white min-h-[220px] md:min-h-0 ${spanClass(item.span)} focus:outline-none focus-visible:ring-2 focus-visible:ring-gold`}
       aria-label={item.caption ?? 'View gallery item'}
@@ -68,7 +64,7 @@ function GalleryTile({
           {item.caption}
         </p>
       )}
-    </motion.button>
+    </button>
   )
 }
 
