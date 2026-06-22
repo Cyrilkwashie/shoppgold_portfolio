@@ -19,12 +19,12 @@
     --canvas: #000000;
     --canvas-alt: #0a0a0a;
     --night: #000000;
-    --ink: #f8c8dc;
-    --ink-muted: #c995a8;
-    --accent: #f8c8dc;
-    --on-night: #f8c8dc;
+    --ink: #ff5cb8;
+    --ink-muted: #cc4993;
+    --accent: #ff5cb8;
+    --on-night: #ff5cb8;
     --on-accent: #000000;
-    --border: rgba(248, 200, 220, 0.18);
+    --border: rgba(255, 92, 184, 0.22);
   }
 
   html {

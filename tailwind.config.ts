@@ -18,7 +18,7 @@ const config: Config = {
         ink: 'var(--ink)',
         'ink-muted': 'var(--ink-muted)',
         gold: 'var(--accent)',
-        'baby-pink': '#F8C8DC',
+        'baby-pink': '#FF5CB8',
         'on-night': 'var(--on-night)',
         'on-accent': 'var(--on-accent)',
       },
